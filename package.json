@@ -1,0 +1,16 @@
+{
+    "description": "NodeJS server providing a REST interface to WLKATA's Mirobot.",
+    "author": "Victor Charpenay <victor.charpenay@fau.de>",
+    "keywords": [
+        "REST",
+        "openAPI",
+        "Mirobot"
+    ],
+    "name": "mirobot",
+    "version": "0.1.0",
+    "main": "server.js",
+    "dependencies": {
+        "express": "4.17.1",
+        "serialport": "9.0.0"
+    }
+}

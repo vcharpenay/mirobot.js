@@ -1,0 +1,59 @@
+{
+    "openapi": "3.0.3",
+    "info": "REST interface to WLKATA's Mirobot",
+    "servers": [
+        {
+            "url": "http://localhost:8080/",
+            "description": "default server -- TODO let Express add it"
+        }
+    ],
+    "paths": {
+        "/homing": {
+            "post": {
+                "description": "Intialize robot (required before any other operation)"
+            }
+        },
+        "/cmd": {
+            "post": {
+                "description": "Send raw gCode to robot",
+                "requestBody": {
+                    "content": {
+                        "text/plain": {}
+                    },
+                    "required": true
+                }
+            }
+        },
+        "/move": {
+            "post": {
+                "description": "Request robot to move to given Cartesian coordinates",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "x": { "type": "number" },
+                                    "y": { "type": "number" },
+                                    "z": { "type": "number" }
+                                },
+                                "required": ["x", "y", "z"]
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            }
+        },
+        "/grasp": {
+            "post": {
+                "description": "Open air pump (to grasp object)"
+            }
+        },
+        "/release": {
+            "post": {
+                "description": "Close air pump (to release object)"
+            }
+        }
+    }
+}
